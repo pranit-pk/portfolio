@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Portfolio{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'js/css/main.css' %}">
+
+    {% block extra_css %}{% endblock %}
+
+</head>
+
+<body>
+
+    <!-- =========================NAVBAR========================== -->
+<header>
+    <nav id="floating-nav" role="navigation" aria-label="Main navigation">
+
+        <!-- PK (shown only when scrolled) -->
+        <span class="brand-short-fixed">PK</span>
+
+        <div class="nav-inner">
+
+            <div id="nav-left">
+                <a class="nav-link" href="/static/pranit_resume.pdf" target="_blank">Resume</a>
+            </div>
+
+            <div id="nav-center">
+                <span class="brand-full">Pranit Khandelwal</span>
+            </div>
+
+            <div id="nav-right">
+                <a class="nav-link" href="#menu">
+                    Menu
+                    <svg class="hamburger" viewBox="0 0 20 14"
+                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect x="0" y="0" width="20" height="2" rx="1"></rect>
+                        <rect x="0" y="6" width="20" height="2" rx="1"></rect>
+                        <rect x="0" y="12" width="20" height="2" rx="1"></rect>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+
+<!-- =========================MAIN========================== -->
+<main>
+
+    <!-- Full-width sections (hero, color screens, etc.) -->
+    {% block full_width %}{% endblock %}
+
+    <!-- Constrained sections (projects, text blocks, etc.) -->
+    {% block content %}{% endblock %}
+    
+
+</main>
+
+    <!-- =========================FOOTER========================== -->
+
+<footer class="footer" id="contact">
+  <div class="footer-wrap">
+    <p class="footer-name">Pranit Khandelwal</p>
+    <p class="footer-role">Backend · Data · Systems</p>
+
+    <div class="footer-links">
+      <a href="mailto:pranitkhandelwal11@gmail.com"
+        onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=pranitkhandelwal11@gmail.com'); return false;"
+        class="footer-email">Email</a>
+      
+      <a href="https://github.com/pranit-pk" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/pranit-khandelwal-951913269" target="_blank">LinkedIn</a>
+      <a href="/resume.pdf" target="_blank">Resume</a>
+    </div>
+  </div>
+
+  <p class="footer-copy">© 2026</p>
+</footer>
+
+
+    <!-- Navbar scroll behavior -->
+    <script src="{% static 'js/js/create.js' %}"></script>
+</body>
+</html>
+
+

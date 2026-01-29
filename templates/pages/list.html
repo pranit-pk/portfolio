@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Projects{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'js/css/projects.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= PROJECTS HERO ================= -->
+<section class="projects-hero">
+  <div class="projects-hero-content">
+    <h1 class="projects-title">Projects</h1>
+    <p class="projects-subtitle">
+      This is a detailed list of all the projects I've worked on so far
+    </p>
+  </div>
+</section>
+
+
+<!-- ================= PROJECTS LIST (EMPTY FOR NOW) ================= -->
+<section class="projects-body">
+  <div class="projects-container">
+
+    <!-- Project 1 -->
+    <article class="project-card">
+      <div class="project-card-header">
+        <h3 class="project-name">Design Similarity Analyzer</h3>
+        <p class="project-stack">Python · OpenCV · SSIM · ORB · Streamlit</p>
+        <a href="https://github.com/pranit-pk/design-plagiarism-detection" target="_blank" class="project-link">GitHub →</a>
+      </div>
+
+      <div class="project-card-body">
+        <p>
+          Built an image comparison system to detect visual and structural
+          similarity between design submissions using multiple similarity
+          metrics and explainable outputs.
+        </p>
+      </div>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="project-card">
+      <div class="project-card-header">
+        <h3 class="project-name">Developer Portfolio System</h3>
+        <p class="project-stack">Django · Python · HTML · CSS · SQLite</p>
+        <a href="#" target="_blank" class="project-link">GitHub →</a>
+      </div>
+
+      <div class="project-card-body">
+        <p>
+          Designed a database-backed portfolio system with slug-based routing
+          and admin-managed content to keep the site scalable and maintainable.
+        </p>
+      </div>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="project-card">
+      <div class="project-card-header">
+        <h3 class="project-name">Time-Series Stock Forecasting</h3>
+        <p class="project-stack">Python · PyTorch · LSTM · Pandas · NumPy</p>
+        <a href="https://github.com/pranit-pk/time-series-forecasting" target="_blank" class="project-link">GitHub →</a>
+      </div>
+
+      <div class="project-card-body">
+        <p>
+          Implemented a multi-layer LSTM model for short-term stock prediction,
+          focusing on sequence windowing, normalization, and minimizing error
+          metrics.
+        </p>
+      </div>
+    </article>
+
+    <!-- Project 4 -->
+    <article class="project-card">
+      <div class="project-card-header">
+        <h3 class="project-name">IPL Data Insights</h3>
+        <p class="project-stack">SQL · SQLite · Python · Pandas · Analytics</p>
+        <a href="https://github.com/pranit-pk/ipl-sql-project" target="_blank" class="project-link">GitHub →</a>
+      </div>
+
+      <div class="project-card-body">
+        <p>
+          Analyzed IPL match data using complex SQL queries across a multi-table
+          schema to uncover player performance trends and team-level insights.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+
+{% endblock %}

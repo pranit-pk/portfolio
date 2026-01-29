@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block full_width %}
+<section class="hero-section">
+    <div class="hero-content">
+
+        <h1 class="hero-title">
+            Building data-driven backend systems with Python
+        </h1>
+
+        <p class="hero-subtitle">
+            Django, SQL, and analytics-focused design for scalable applications.
+        </p>
+
+        <!-- Metric / Credibility Strip -->
+        <div class="hero-metrics">
+            <span>Backend & Data Focus</span>
+            <span>Python · Django · SQL</span>
+        </div>
+
+        <div class="hero-cta-row">
+            <a href="#aboutme" class="cta">→ About me</a>
+            <a href="{% url 'projects' %}" class="cta">→ Projects</a>
+            <a href="/static/pranit_resume.pdf" class="cta" target="_blank">→ Resume</a>
+            <a href="#contact" class="cta">→ Contact Me</a>
+        </div>
+
+
+    </div>
+
+    <span class="hero-scroll-cue">Scroll</span>
+
+</section>
+
+<section class="learning-section">
+  <div class="learning-wrap">
+
+    <h2 class="learning-title">
+      What I’m<br>actively<br>learning?
+    </h2>
+
+    <div class="learning-right">
+      <ul>
+        <li>Backend development with Django</li>
+        <li>Databases & SQL</li>
+        <li>Python for data & analysis</li>
+        <li>System thinking</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="building-section">
+  <div class="building-wrap">
+
+    <!-- LEFT: PROJECT LIST -->
+    <div class="building-left">
+      <ul>
+        <li>Design Similarity Analyzer</li>
+        <li>Developer Portfolio System</li>
+        <li>Time-Series Stock Forecasting</li>
+        <li>IPL Data Insights</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT: HEADING -->
+    <div class="building-right">
+      <h2 class="building-title">
+        <a href="{% url 'projects' %}">What I’m building right now?</a>
+      </h2>
+    </div>
+
+  </div>
+</section>
+
+<div class="footer-divider"></div>
+
+
+
+
+{% endblock %}

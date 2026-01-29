@@ -1,0 +1,610 @@
+/* =========================GLOBAL========================= */
+body {
+    margin: 0;
+    background: #fff7ef;
+    color: #0f172a;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                 "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================PAGE CONTENT WRAPPER========================= */
+.page-content {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+}
+
+/* ========================= NAVBAR ========================= */
+
+/* Full-width pill-shaped navbar */
+#floating-nav {
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1100px;
+    width: calc(100% - 3rem);
+
+    background: #000;
+    color: #fff;
+    border-radius: 9999px;
+    padding: 1.25rem 2rem;
+
+    box-shadow: 0 6px 18px rgba(2,6,23,0.08);
+    overflow: visible;
+
+    transition:
+        width 0.32s ease,
+        height 0.32s ease,
+        padding 0.32s ease,
+        border-radius 0.32s ease,
+        left 0.32s ease,
+        top 0.32s ease,
+        transform 0.32s ease;
+}
+
+/* ========================= SCROLLED (CIRCLE) STATE ========================= */
+
+#floating-nav.navbar-scrolled {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+
+    left: 1.5rem;
+    top: 1rem;
+    right: auto;
+
+    border-radius: 50%;
+    transform: none;
+    position: fixed;
+
+    overflow: visible;
+
+    cursor: pointer;          /* UX feedback */
+    pointer-events: auto;     /* 🔑 REQUIRED for click */
+}
+
+/* Hover scale only in circle mode */
+#floating-nav.navbar-scrolled:hover {
+    transform: scale(1.09);
+}
+
+/* ========================= INNER LAYOUT ========================= */
+
+.nav-inner {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 1; /* stays below PK */
+}
+
+/* Left / Right groups */
+#nav-left,
+#nav-right {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Push right items */
+#nav-right {
+    margin-left: auto;
+}
+
+/* Hide side content when scrolled */
+#floating-nav.navbar-scrolled #nav-left,
+#floating-nav.navbar-scrolled #nav-right {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+/* ========================= CENTER BRAND ========================= */
+
+#nav-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.375rem;
+    letter-spacing: 0.2px;
+
+    pointer-events: auto;
+}
+
+/* Reposition center in circle mode */
+#floating-nav.navbar-scrolled #nav-center {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: none;
+    pointer-events: none; /* PK handles visuals only */
+}
+
+/* ========================= BRAND STATES ========================= */
+
+/* Full brand (default) */
+.brand-full {
+    display: inline;
+}
+
+/* Short brand (PK) */
+.brand-short-fixed {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fff;
+
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10; /* always above */
+}
+
+/* Show PK only when scrolled */
+#floating-nav.navbar-scrolled .brand-short-fixed {
+    opacity: 1;
+}
+
+/* Hide full brand when scrolled */
+#floating-nav.navbar-scrolled .brand-full {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ========================= LINKS ========================= */
+
+.nav-link {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+/* ========================= HAMBURGER ========================= */
+
+.hamburger {
+    width: 20px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.hamburger rect {
+    fill: rgba(255,255,255,0.95);
+}
+
+/* ========================= SMALL LOGO ========================= */
+
+.brand-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+
+/* =========================HERO SECTION========================= */
+
+html, body {
+    overflow-x: hidden;
+}
+
+.hero-section {
+    min-height: 109vh;
+    background-color:  #FFE6CC;
+    display: flex;
+    align-items: center;
+    margin-top: -7vh;
+    justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        margin-top: 0;
+        padding: 0 1.25rem;
+    }
+}
+
+
+.hero-content {
+    max-width: 900px;
+    padding-left: 7rem;
+    padding-right: 2rem;
+    margin-left: 6rem;
+    text-align: left;
+}
+
+.hero-title {
+    font-size: clamp(3.4rem, 7vw, 6rem);
+    font-weight: 720;
+    color: #000;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #111;
+    line-height: 1.15;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* =========================HERO METRICS========================= */
+
+.hero-metrics {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+    font-size: 0.85rem;
+    color: #333;
+    letter-spacing: 0.02em;
+}
+
+/* =========================
+   CTA — SHARED STYLE
+========================= */
+
+.hero-cta-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+
+    /* IMPORTANT: stop inline collapse */
+    width: max-content;
+}
+
+.cta {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #000;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+
+    opacity: 0.6;
+    position: relative;
+
+    transition: opacity 0.2s ease, font-weight 0.2s ease;
+}
+
+/* underline indicator (hidden by default) */
+.cta::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: #B77466;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* hover = same highlight behavior as footer */
+.cta:hover {
+    opacity: 1;
+    font-weight: 600;
+    transform: translateX(2px);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.cta:hover::after {
+    opacity: 0.6;
+}
+
+/* =========================HERO SCROLL CUE========================= */
+
+.hero-scroll-cue {
+    position: absolute;
+    bottom: 2rem;
+    left: 4rem;
+
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: #000;
+    opacity: 0.25;
+
+    pointer-events: none;
+}
+@media (max-width: 768px) {
+    .hero-scroll-cue {
+        display: none;
+    }
+}
+
+/* =========================WHAT I'M LEARNING SECTION========================= */
+
+.learning-section {
+    background: linear-gradient(to bottom, #FFE6CC 0%, #FFF7EF 60%, #FFF7EF 100%);
+    min-height: auto;       /* remove forced height */
+    padding: 4rem 0;        /* just enough breathing space */
+    display: flex;
+    align-items: flex-start; /* align content at top */
+    justify-content: flex-start;
+}
+
+.learning-wrap {
+    max-width: 1200px;
+    margin: 0;
+
+    padding-left: 17rem;   /* aligns with hero text */
+    padding-right: 0rem;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .learning-wrap {
+        grid-template-columns: 1fr;   /* stack left and right */
+        padding: 1rem;
+    }
+    .learning-title {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .learning-right {
+        align-items: center;
+    }
+}
+
+/* LEFT — STATEMENT */
+.learning-title {
+    font-size: clamp(3.4rem, 8vw, 6rem);
+    font-weight: 700;
+    line-height: 1.05;
+
+    color: #000;
+    letter-spacing: -0.025em;
+    text-align: right;
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* RIGHT — STACKED TEXT (NO BULLETS) */
+.learning-right {
+    display: flex;
+    flex-direction: column;            
+    padding-bottom: 1rem;
+    gap: 0.6rem;
+    /* margin-top: 3rem; */
+    padding-top: 5.5rem;
+}
+
+.learning-right ul {
+    list-style: none;     /* removes bullets */
+    padding: 0;
+    margin: 0;
+    height: 100%;         /* ensures full vertical stretch */
+    display: flex;
+    flex-direction: column;
+}
+
+.learning-right li {
+    font-size: clamp(1.2rem, 3.5vw, 6rem);/* larger size to match left block height */
+    font-weight: 500;
+    color: #B77466; 
+    line-height: 1.1;     /* tighter spacing so text fits neatly */
+    white-space: nowrap; /* prevents wrapping to keep layout clean */
+    text-shadow: 0px 4px 12px rgba(0,0,0,0.12);
+}
+
+
+/* =========================BUILDING SECTION========================= */
+
+.building-section {
+    background-color: #fff7ef;   /* soft background */
+    min-height: auto;       /* remove forced height */
+    padding: 4rem 0;        /* just enough breathing space */
+    display: flex;
+    align-items: flex-start; /* align content at top */
+    justify-content: flex-start;
+}
+
+
+.building-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 6rem;       /* more horizontal padding */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;             /* bigger gap between columns */
+}
+
+
+/* PROJECTS LIST */
+.building-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    height: 82%;              
+}
+
+.building-left ul {
+    flex: 0;                  
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    gap: 1rem;
+    list-style: none;           
+}
+
+
+.building-left li {
+    font-size: clamp(1.2rem, 3.4vw, 5rem);
+    font-weight: 500;
+    color: #B77466; 
+    line-height: 1.1;
+    text-shadow: 0px 4px 12px rgba(0,0,0,0.12);
+}
+
+/* HEADING */
+.building-title {
+    font-size: clamp(3.4rem, 8vw, 5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: #000;
+    text-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.building-title a {
+    color: inherit;          /* same color as heading */
+    text-decoration: none;   /* remove underline */
+    transition: color 0.3s ease;
+}
+
+.building-title a:hover {
+    color: #ECB176;
+}
+
+
+/* =========================FOOTER========================= */
+
+.footer {
+  background: linear-gradient(to top, #FFE6CC 0%, #FFE6CC 40%, #FFF7EF 100%);
+  padding: 6rem 0 3rem;
+}
+
+
+.footer-wrap {
+    max-width: 1200px;
+    margin: 0;
+    padding-left: 17rem;   /* aligns with hero & learning */
+    padding-right: 4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* NAME */
+.footer-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0;
+    color: #000;
+}
+
+/* ROLE */
+.footer-role {
+    margin-top: 0.4rem;
+    font-size: 1.1rem;
+    color: #B77466;
+}
+
+/* LINKS */
+.footer-links {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #000;
+    opacity: 0.75;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+/* COPYRIGHT */
+.footer-copy {
+    margin-top: 4rem;
+    padding-left: 17rem;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.footer-name,
+.footer-role,
+.footer-links a,
+.footer-copy {
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.building-section {
+    padding-bottom: 0;
+}
+.footer {
+    margin-top: 0;
+}
+
+/* BASE STATE — calm */
+.footer-links a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #000;
+    opacity: 0.6;
+    font-weight: 500;
+    position: relative;
+    transition: opacity 0.2s ease;
+}
+
+/* HOVER STATE — highlighted (same as email earlier) */
+.footer-links a:hover {
+    opacity: 1;
+    font-weight: 600;
+}
+
+/* underline indicator on hover */
+.footer-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: #B77466;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover::after {
+    opacity: 0.6;
+}
